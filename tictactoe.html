@@ -1,47 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Bàn cờ caro</h1> <br>
-<p id="rs"></p> <br>
-<button id="btm1" onclick="change()">Đánh cờ</button>
+
+<body >
+<h3>Caro Game Simple</h3>
+<p id="carogame" />
+<input type="button" value="Change Value" onclick="changeValue()">
 </body>
 <script>
-    let a = +prompt('Nhập độ rộng của bàn cò');
-    let b = +prompt('Nhập chiều dài của bàn cờ')
-    let hienthi = document.getElementById('rs');
-    let result = [];
-    let data ='';
-    for (let i = 0; i < a; i++) {
+    let b = document.getElementById("carogame");
 
-        for (let j = 0; j < b; j++) {
-            result[j] = new Array('(.)');
-            data+=result[i][j] + "&nbsp;&nbsp;";
+    let board = [];
+    let data = "";
+    let player1=false
+    for (let i = 0; i < 3; i++) {
+        board[i] = new Array(0, 0, 0);
+
+        for (let j = 0; j < 3; j++)
+        {
+            board[j] = new Array(0, 0, 0);
+            data += board[i][j] + "&nbsp;&nbsp;";
         }
-        data += '<br/>';
+        data += "<br/>";
     }
 
-    hienthi.innerHTML = data;
+    // for (let i = 0; i < 5; i++) {
+    //     data += "<br/>";
+    //     for (let j = 0; j < 5; j++) {
+    //         data += board[i][j] + "&nbsp;&nbsp;";
+    //     }
+    // }
 
-    function change() {
-        let positionX = prompt("X: ");
-        let positionY = prompt("Y: ");
-        data = "";
-        board[positionX][positionY] = "x";
-        for (let i = 0; i < 5; i++) {
-            data += "<br/>";
+    data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+    b.innerHTML = data;
+    function changeValue() {
+        player1 = !player1
+        if (player1){
+            alert('player1 đang chơi')
+            let positionX = prompt("X: ");
+            let positionY = prompt("Y: ");
+            data = "";
+            board[positionX][positionY] = "x";
+            for (let i = 0; i < 3; i++) {
+                data += "<br/>";
 
-            for (let j = 0; j < 5; j++) {
+                for (let j = 0; j < 3; j++) {
 
-                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
             }
+
+
+            data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+            b.innerHTML = "<hr/>" + data;
+        }else {
+            alert('player 2 đang chơi')
+            let positionX = prompt("X: ");
+            let positionY = prompt("Y: ");
+            data = "";
+            board[positionX][positionY] = "-";
+            for (let i = 0; i < 3; i++) {
+                data += "<br/>";
+
+                for (let j = 0; j < 3; j++) {
+
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+
+
+            data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+            b.innerHTML = "<hr/>" + data;
         }
 
-        data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
-        b.innerHTML = "<hr/>" + data;
+        check();
     }
+    function check(){
+        if (board[0][0]==='x'&&board[0][1]==='x'&&board[0][2]==='x') {
+            alert(' PLAYER1 WIN')
+        }
+            if (board[1][0]==='x'&&board[1][1]==='x'&&board[1][2]==='x') {
+                alert('PLAYER1 WIN')
+            }
+        if (board[2][0]==='x'&&board[2][1]==='x'&&board[2][2]==='x') {
+            alert('PLAYER1 WIN')
+        }
+        if (board[0][0]==='x'&&board[1][1]==='x'&&board[2][2]==='x') {
+            alert('PLAYER1 WIN')
+        }
+
+        if (board[0][2]==='x'&&board[1][1]==='x'&&board[2][0]==='x') {
+            alert('PLAYER1 WIN')
+        }
+        if (board[0][0]==='x'&&board[1][0]==='x'&&board[2][0]==='x') {
+            alert('PLAYER1 WIN')
+        }
+        if (board[0][1]==='x'&&board[1][1]==='x'&&board[2][1]==='x') {
+            alert('PLAYER1 WIN')
+        }
+        if (board[0][2]==='x'&&board[1][2]==='x'&&board[2][2]==='x') {
+            alert('PLAYER1 WIN')
+        }
+
+
+
+        if (board[0][0]==='-'&&board[0][1]==='-'&&board[0][2]==='-') {
+            alert(' PLAYER2 WIN')
+        }
+        if (board[1][0]==='-'&&board[1][1]==='-'&&board[1][2]==='-') {
+            alert('PLAYER2 WIN')
+        }
+        if (board[2][0]==='-'&&board[2][1]==='-'&&board[2][2]==='-') {
+            alert('PLAYER2 WIN')
+        }
+        if (board[0][0]==='-'&&board[1][1]==='-'&&board[2][2]==='-') {
+            alert('PLAYER2 WIN')
+        }
+
+        if (board[0][2]==='-'&&board[1][1]==='-'&&board[2][0]==='-') {
+            alert('PLAYER2 WIN')
+        }
+        if (board[0][0]==='-'&&board[1][0]==='-'&&board[2][0]==='-') {
+            alert('PLAYER2 WIN')
+        }
+        if (board[0][1]==='-'&&board[1][1]==='-'&&board[2][1]==='-') {
+            alert('PLAYER2 WIN')
+        }
+        if (board[0][2]==='-'&&board[1][2]==='-'&&board[2][2]==='-') {
+            alert('PLAYER2 WIN')
+        }
+    }
+
+
 </script>
 </html>

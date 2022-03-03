@@ -10,49 +10,27 @@
         <textarea cols="30" rows="5" id="txt"></textarea>
     </label>
     <script>
-    let array = [];
-    let str = "";
-    array[1] ='A';
-    array[2] ='M';
-    array[3] ='A';
-    array[4] ='Z';
-    array[5] ='I';
-    array[6] ='N';
-    array[7] ='G';
-    array[8] =' ';
-    array[9] ='G';
-    array[10] ='O';
-    array[11] ='O';
-    array[12] ='D';
-    array[13] =' ';
-    array[14] ='J';
-    array[15] ='O';
-    array[16] ='B';
-    array[17] =' ';
-    array[18] ='B';
-    array[19] ='O';
-    array[20] ='Y';
-    array[21] ='!';
+    let array = ' AMAZING GOOD BOY!';
+    let str ="";
+    let array1=[];
+    array1= array.split('');
+
 
     function fake()
     {
         let text = document.getElementById("txt").value;
-        let j = text.length;
-        if (j > 0)
-        {
-            for(let i = 1; i <= j; i++)
+
+
+            for(let i = 1; i < text.length; i++)
             {
-                str += array[i];
-                if (i === 22)
-                {
-                    document.getElementById("txt").value= "";
-                    str = "";
-                }
+                str += array1[i];
+
+
             }
-        }
+
         document.getElementById("txt").value = str;
-        str = "";
-        setTimeout("fake()", 1);
+
+        setTimeout(fake,1);
     }
     </script>
 </form>
