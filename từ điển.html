@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="nhapso" onchange="change()"> <br>
+<button id="btm1" onclick="change()">Tìm kiếm</button>
+<br>
+<p id="rs"></p>
+</body>
+<script>
+    let anh =['dog','cat','chicken','monkey'];
+    let viet = ['chó','mèo','gà','khỉ'];
+    let tim = document.getElementById('btm1');
+    let result = document.getElementById('rs');
+
+    function change(){
+
+        let giatri =document.getElementById('nhapso').value;
+        for (let i=0;i<anh.length;i++){
+            if (giatri===anh[i]){
+                result.innerHTML = viet[i];
+                break;
+
+            }else {
+                result.innerHTML ='không tìm thấy';
+            }
+        }
+    }
+</script>
+</html>

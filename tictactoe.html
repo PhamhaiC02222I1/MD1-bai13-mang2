@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Bàn cờ caro</h1> <br>
+<p id="rs"></p> <br>
+<button id="btm1" onclick="change()">Đánh cờ</button>
+</body>
+<script>
+    let a = +prompt('Nhập độ rộng của bàn cò');
+    let b = +prompt('Nhập chiều dài của bàn cờ')
+    let hienthi = document.getElementById('rs');
+    let result = [];
+    let data ='';
+    for (let i = 0; i < a; i++) {
+
+        for (let j = 0; j < b; j++) {
+            result[j] = new Array('(.)');
+            data+=result[i][j] + "&nbsp;&nbsp;";
+        }
+        data += '<br/>';
+    }
+
+    hienthi.innerHTML = data;
+
+    function change() {
+        let positionX = prompt("X: ");
+        let positionY = prompt("Y: ");
+        data = "";
+        board[positionX][positionY] = "x";
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+
+            for (let j = 0; j < 5; j++) {
+
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+
+        data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+        b.innerHTML = "<hr/>" + data;
+    }
+</script>
+</html>

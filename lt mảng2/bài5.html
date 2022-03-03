@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr1 = 'hello world';
+    let arr2 = 'hello world 1';
+    let array1 = arr1.split();
+    let array2 = arr2.split();
+    for (let i = 0; i < array1.length; i++) {
+        for (let j = 0; j < array2.length; j++) {
+            if (array1[i] == array2[j]) {
+            document.write('giống nhau')
+            }else alert('không giống')
+        }
+    }
+</script>
+</body>
+</html>

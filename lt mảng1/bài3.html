@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="hienthi"></p>
+<script>
+    let num =[12,2,30,4,24,6];
+    let max=num[0];
+    let index='';
+    let tb;
+    let result =document.getElementById('hienthi');
+    let sum=0;
+    for (let i=1;i<num.length;i++){
+        if (num[i]>max){
+          max=num[i];
+          index=i;
+
+
+        }
+    }
+    for (i=0;i<num.length;i++){
+        sum+=num[i];
+    }tb =sum/num.length;
+    result.innerHTML ='giá trị lớn nhất là: '+max+ '&nbsp;&nbsp;'+'ở vị trí: '+index +'<br>'+ 'Giá trị trung bình là: '+tb;
+</script>
+</body>
+</html>
